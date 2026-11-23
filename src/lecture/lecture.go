@@ -11,11 +11,12 @@ func lireNombres(args []string) ([]int, error) {
 	for _, arg := range args {
 		morceaux := strings.Fields(arg)
 		for _, morceau := range morceaux {
-			nombre, err := strconv.Atoi(morceau)
+			nombre, err := strconv.ParseInt(morceau, 10, 32)
 			if err != nil {
 				return nil, fmt.Errorf("%q n'est pas un nombre entier", morceau)
 			}
-			nombres = append(nombres, nombre)
+
+			nombres = append(nombres, int(nombre))
 		}
 	}
 	return nombres, nil

@@ -1,7 +1,5 @@
 package pile
 
-import "fmt"
-
 type Piles struct {
 	A          []int
 	B          []int
@@ -44,10 +42,6 @@ func (p *Piles) Pa() {
 	p.A = append([]int{p.B[0]}, p.A...)
 	p.B = p.B[1:]
 	p.Operations = append(p.Operations, "pa")
-}
-
-func (p *Piles) afficher() {
-	fmt.Println("a :", p.A, " b :", p.B)
 }
 
 func (p *Piles) Rra() {
